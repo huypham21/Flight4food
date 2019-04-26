@@ -1,9 +1,9 @@
 <?php
 function findFlightsForAirportCode($startId,$destId, $startDate, $endDate)
 {
-	require_once("dateConverter.php");
-	$startDate = dateConverter($startDate);
-	$endDate = dateConverter($endDate);
+	//require_once("dateConverter.php");
+	//$startDate = dateConverter($startDate);
+	//$endDate = dateConverter($endDate);
 	
 	$response = Unirest\Request::get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/JFK-sky/$destId/$startDate?inboundpartialdate=$endDate",
   array(

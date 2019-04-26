@@ -13,7 +13,12 @@ function getWeatherData($cityName,$date)
 	$desiredTime = $date . " 12:00:00";
 	foreach($data as $weather)
 	{
-		if($weather->dt_txt == $desiredTime)
+		if($date === date("Y-m-d"))
+		{
+			//returns the first weather data if contained on the same day
+			return $weather->main;
+		}
+		else if($weather->dt_txt == $desiredTime)
 		{
 			//var_dump($weather->main);
 			return $weather->main;

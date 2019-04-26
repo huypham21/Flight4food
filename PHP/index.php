@@ -13,31 +13,10 @@
    <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
+   <?php include 'functions/siteJumbotron.php';?>
     
-    <p>Select Origin Airport</p>
-    <?php
-    require_once("functions/getCityFromAirport.php");
-    //need rider to select airport they will fly from
-    echo '<select name="airportList" form="airportForm">';
-    foreach($iataToCity as $key=>$value)
-    {
-        echo '<option value="' .$value. '">' . $key . "(" . $value . ")</option>";
-    }
-    echo "</select>";
-    ?>
-   
-   
-   
-   <form action="index2.php" id="airportForm" method="post">
-      <input type="date" id="start" name="tripStart"
-       value="2019-04-24"
-       min="2018-01-01" max="2019-12-31">
-      <input type="date" id="end" name="tripEnd"
-       value="2019-04-24"
-       min="2018-01-01" max="2019-12-31">
-     <input type="submit">
-   </form>
-			
-		
+   <?php include 'functions/index/createIndex.php';?>
+	
+	<?php include 'functions/siteFooter.php';?>	
 </body>
 </html>
