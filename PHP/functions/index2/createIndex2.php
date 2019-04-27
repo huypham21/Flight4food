@@ -5,8 +5,8 @@
     $startDate = $postData["tripStart"];
     $endDate = $postData["tripEnd"];
     $originAirport = $postData["airportList"];
-    var_dump($postData);
-    echo "<br><br><br>";
+    //var_dump($postData);
+    //echo "<br><br><br>";
     
     
     //get all available flights on these days in that state
@@ -18,7 +18,7 @@
     $count = 0;
     foreach($iataToCity as $city=>$code)
     {
-       if($count > 2)
+       if($count > 1)
        {
           break;
        }
@@ -27,8 +27,7 @@
        
             
             
-            echo "<br><br>";
-                        $count++;
+        $count++;
     }
    }
 ?>

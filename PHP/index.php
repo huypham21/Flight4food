@@ -15,7 +15,7 @@
 <body>
    <?php include 'functions/siteJumbotron.php';?>
     
-   <?php include 'functions/index/createIndex.php';?>
+   <?php require_once('functions/index/createIndex.php');?>
 	
 	<?php include 'functions/siteFooter.php';?>	
 </body>

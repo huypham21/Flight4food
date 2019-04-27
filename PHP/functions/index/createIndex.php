@@ -1,23 +1,45 @@
-    <p>Select Origin Airport</p>
-    <?php
-    require_once("getCityFromAirport.php");
-    //need rider to select airport they will fly from
-    echo '<select name="airportList" form="airportForm">';
-    foreach($iataToCity as $key=>$value)
-    {
-        echo '<option value="' .$value. '">' . $key . "(" . $value . ")</option>";
-    }
-    echo "</select>";
+
+    <?php require_once("getCityFromAirport.php");?>
+    
+    <div class="container">
+       <div class="row">
+          <div class="col-xs-6 col-xs-offset-3 text-center">
+             <form action="index2.php" id="airportForm" method="post">
+             <h1>Trip Finder Tool</h1>
+             <p>Please input your home airport, departure, and return date below:</p>
+             <p>
+                Home Airport: <span class="glyphicon glyphicon-home"></span>
+                <?php
+                echo '<select name="airportList" form="airportForm">';
+                foreach($iataToCity as $key=>$value)
+                {
+                    echo '<option value="' .$value. '">' . $key . "(" . $value . ")</option>";
+                }
+                echo "</select>";
+                ?>
+             </p>
+             <p>
+                Departure Date: <span class="glyphicon glyphicon-chevron-right"></span>
+                <?php
+                  echo '<input type="date" id="start" name="tripStart"
+                  value="'.date("Y-m-d").'"
+                  min="'.date("Y-m-d").'" max="2019-12-31">';
+                ?>
+             </p>
+             <p>
+                Return Date: <span class="glyphicon glyphicon-chevron-left"></span>
+                <?php
+                echo '<input type="date" id="end" name="tripEnd"
+                  value="'.date("Y-m-d").'"
+                  min="'.date("Y-m-d").'" max="2019-12-31">'; 
+                ?>
+             </p>
+             <input type="submit">
+            </form>
+          </div>
+       </div>
+    </div>
    
    
-   
-   echo '<form action="index2.php" id="airportForm" method="post">
-      <input type="date" id="start" name="tripStart"
-       value="'.date("Y-m-d").'"
-       min="'.date("Y-m-d").'" max="2019-12-31">
-      <input type="date" id="end" name="tripEnd"
-       value="'.date("Y-m-d").'"
-       min="'.date("Y-m-d").'" max="2019-12-31">
-     <input type="submit">
-   </form>';
-	?>
+	
+	

@@ -31,11 +31,20 @@ echo '<div class="panel-group" id="accordion">
 
                 <div id="' . $code . '-collapse" class="panel-collapse collapse">
                         <div class="panel-body recipe-description">';
-                        //insert data here
+                        
+                        //Restraunt Information
+                        echo '<ul>Top Restaurants<hr>';
                         foreach($restData as $rest)
                         {
-                                echo $rest->name . "<br>";
+                                echo '<li>Name: ' . $rest->name . '</li>';
+                                echo "<ul>
+                                        <li>Price: $rest->price</li>
+                                        <li>Rating: $rest->rating</li>
+                                        <li>Phone Number: $rest->phone</li>
+                                        <li>Website: <a href='$rest->url'>YELP!</a></li>
+                                        </ul>";
                         }
+                        echo '<hr></ul>';
                         
                         var_dump($weatherData);
                         
