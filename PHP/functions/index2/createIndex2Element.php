@@ -46,8 +46,10 @@ echo '<div class="panel-group" id="accordion">
                         }
                         echo '<hr></ul>';
                         
-                        var_dump($weatherData);
-                        
+                        echo '<ul>Arrival Weather:<hr>';
+                        echo "<li>Temperature: ". ((($weatherData->temp) - 273.15) * 9 /5 + 32) . "*F</li>";
+                        echo "<li>Humidity: $weatherData->humidity%</li>";
+                        echo "<hr></ul>";
                         
                         //end data here
 echo '                  </div>
