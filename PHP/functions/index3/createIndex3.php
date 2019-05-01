@@ -17,7 +17,7 @@
         require_once("processFlightData.php");
 
         //echo "Destination: " . $city . "(" . $code. ")" ."<br>";
-        processFlightData(findFlightsForAirportCode($originAirport,$destAirport,$startDate,$endDate));
+        processFlightData(findFlightsForAirportCode($originAirport,$destAirport,$startDate,$endDate),$startDate,$endDate);
     }
     
    ?>

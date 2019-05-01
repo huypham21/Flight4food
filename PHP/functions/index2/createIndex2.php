@@ -19,7 +19,7 @@
     $count = 0;
     foreach($iataToCity as $city=>$code)
     {
-       if($count > 5)
+       if($count > 2)
        {
           break;
        }

@@ -4,7 +4,8 @@ function createIndex2Element($city, $code, $startDate, $endDate, $originAirport)
 {
         $restData = getYelpForCity($city);
             
-        $weatherData = getWeatherData($city,$startDate);
+        $weatherDataStart = getWeatherData($city,$startDate);
+        $weatherDataEnd = getWeatherData($city, $endDate);
 
 echo '<div class="panel-group" id="accordion">
         <div class="panel panel-default container">
@@ -33,23 +34,67 @@ echo '<div class="panel-group" id="accordion">
                         <div class="panel-body recipe-description">';
                         
                         //Restraunt Information
+                        echo '<div class= "row">';
                         echo '<ul>Top Restaurants<hr>';
+                        echo '</div>';
+                        
+                        $count = 0;
                         foreach($restData as $rest)
                         {
+                                if($count % 2 == 0)
+                                {
+                                        if($count > 0)
+                                        {
+                                                echo '</div>';
+                                        }
+                                        echo '<div class="row">';
+                                }
+                                
+                                echo '<div class="col-xs-6">';
                                 echo '<li>Name: ' . $rest->name . '</li>';
                                 echo "<ul>
-                                        <li>Price: $rest->price</li>
-                                        <li>Rating: $rest->rating</li>
+                                        <li>Rating: $rest->rating/5 Stars</li>
+                                        <li>Category: " . $rest->categories[0]->title . "</li>
                                         <li>Phone Number: $rest->phone</li>
-                                        <li>Website: <a href='$rest->url'>YELP!</a></li>
                                         </ul>";
+                                echo '</div>';
+                                //<li>Price: $rest->price</li>
+                                //<li>Website: <a href='$rest->url'>YELP!</a></li>
+                                
+                                $count++;
                         }
+                        echo '</div>';
                         echo '<hr></ul>';
                         
+                        echo '<div class="row">';
+                        
+                        echo '<div class="col-xs-6">';
                         echo '<ul>Arrival Weather:<hr>';
-                        echo "<li>Temperature: ". ((($weatherData->temp) - 273.15) * 9 /5 + 32) . "*F</li>";
-                        echo "<li>Humidity: $weatherData->humidity%</li>";
+                        echo "<li>Temperature: ". ((($weatherDataStart->main->temp) - 273.15) * 9 /5 + 32) . "*F</li>";
+                        if(isset($weatherDataStart->rain->{'3h'}))
+                        {
+                                echo "<li>Chance of Rain: " . $weatherDataStart->rain->{'3h'} * 100 . "%</li>"; 
+                        }
+                        else
+                        {
+                                echo "<li>Chance of Rain: " . 0 . "%</li>"; 
+                        }
                         echo "<hr></ul>";
+                        echo '</div>';
+                        
+                        echo '<div class="col-xs-6">';
+                        echo '<ul>Departure Weather:<hr>';
+                        echo "<li>Temperature: ". ((($weatherDataEnd->main->temp) - 273.15) * 9 /5 + 32) . "*F</li>";
+                        if(isset($weatherDataStart->rain->{'3h'}))
+                        {
+                                echo "<li>Chance of Rain: " . $weatherDataEnd->rain->{'3h'} * 100 . "%</li>"; 
+                        }
+                        else
+                        {
+                                echo "<li>Chance of Rain: " . 0 . "%</li>"; 
+                        }
+                        echo "<hr></ul>";
+                        echo '</div>';
                         
                         //end data here
 echo '                  </div>

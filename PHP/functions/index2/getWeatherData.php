@@ -9,21 +9,25 @@ function getWeatherData($cityName,$date)
   )
 	);
 	
+	
 	$data = ($response->body->list);
 	$desiredTime = $date . " 12:00:00";
+	//var_dump(array_values(array_slice($data, -1))[0]);
 	foreach($data as $weather)
 	{
 		if($date === date("Y-m-d"))
 		{
 			//returns the first weather data if contained on the same day
-			return $weather->main;
+			return $weather;
 		}
 		else if($weather->dt_txt == $desiredTime)
 		{
 			//var_dump($weather->main);
-			return $weather->main;
+			return $weather;
 		}
 	}
+	
+	return array_values(array_slice($data, -1))[0];
 }
 
 //getWeatherData("Austin","2019-04-25");

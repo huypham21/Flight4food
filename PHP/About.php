@@ -10,19 +10,13 @@
    <script src="js/jquery-3.3.1.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/awesomplete.js"></script>
-   <script src="js/results.js"></script>
    <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
    <?php include 'functions/siteJumbotron.php';?>
-   
-   <?php 
-   include 'functions/index2/createIndex2.php';
-   createIndex2($_POST);
-   ?>
-   <br>
-   <br>
-		
-	<?php include 'functions/siteFooter.php';?>
+    
+   <?php require_once('functions/index4(about)/createIndex4.php');?>
+	
+	<?php include 'functions/siteFooter.php';?>	
 </body>
 </html>
