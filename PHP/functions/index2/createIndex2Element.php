@@ -73,11 +73,11 @@ echo '<div class="panel-group" id="accordion">
                         echo "<li>Temperature: ". ((($weatherDataStart->main->temp) - 273.15) * 9 /5 + 32) . "*F</li>";
                         if(isset($weatherDataStart->rain->{'3h'}))
                         {
-                                echo "<li>Chance of Rain: " . $weatherDataStart->rain->{'3h'} * 100 . "%</li>"; 
+                                echo "<li>Rainfall(cm.): " . $weatherDataStart->rain->{'3h'} /10 . "</li>"; 
                         }
                         else
                         {
-                                echo "<li>Chance of Rain: " . 0 . "%</li>"; 
+                                echo "<li>Rainfall(cm.) " . 0 . "</li>"; 
                         }
                         echo "<hr></ul>";
                         echo '</div>';
@@ -85,13 +85,13 @@ echo '<div class="panel-group" id="accordion">
                         echo '<div class="col-xs-6">';
                         echo '<ul>Departure Weather:<hr>';
                         echo "<li>Temperature: ". ((($weatherDataEnd->main->temp) - 273.15) * 9 /5 + 32) . "*F</li>";
-                        if(isset($weatherDataStart->rain->{'3h'}))
+                        if(isset($weatherDataEnd->rain->{'3h'}))
                         {
-                                echo "<li>Chance of Rain: " . $weatherDataEnd->rain->{'3h'} * 100 . "%</li>"; 
+                                echo "<li>Rainfall(cm.): " . $weatherDataEnd->rain->{'3h'} / 10 . "</li>"; 
                         }
                         else
                         {
-                                echo "<li>Chance of Rain: " . 0 . "%</li>"; 
+                                echo "<li>Rainfall(cm.) " . 0 . "</li>"; 
                         }
                         echo "<hr></ul>";
                         echo '</div>';

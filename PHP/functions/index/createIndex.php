@@ -2,6 +2,7 @@
     <?php require_once("getCityFromAirport.php");?>
     
     <div class="container">
+       <br><br><br><br>
        <div class="row">
           <div class="col-xs-6 col-xs-offset-3 text-center">
              <form action="index2.php" id="airportForm" method="post">
@@ -23,7 +24,7 @@
                 <?php
                   echo '<input type="date" id="start" name="tripStart"
                   value="'.date("Y-m-d").'"
-                  min="'.date("Y-m-d").'" max="2019-12-31">';
+                  min="'  .  date("Y-m-d")  .  '" max="'. date('Y-m-d', strtotime(' + 4 days')) .'">';
                 ?>
              </p>
              <p>
@@ -31,7 +32,7 @@
                 <?php
                 echo '<input type="date" id="end" name="tripEnd"
                   value="'.date("Y-m-d").'"
-                  min="'.date("Y-m-d").'" max="2019-12-31">'; 
+                  min="'  .  date("Y-m-d")  .  '" max="'. date('Y-m-d', strtotime(' + 4 days')) .'">'; 
                 ?>
              </p>
              <input type="submit">

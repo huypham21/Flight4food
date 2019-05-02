@@ -1,7 +1,7 @@
 <?php
    function createIndex2($postData)
    {
-    echo "TEST1";
+    //echo "TEST1";
     require_once('Unirest.php');
     $startDate = $postData["tripStart"];
     $endDate = $postData["tripEnd"];
@@ -19,7 +19,7 @@
     $count = 0;
     foreach($iataToCity as $city=>$code)
     {
-       if($count > 2)
+       if($count > 15)
        {
           break;
        }
