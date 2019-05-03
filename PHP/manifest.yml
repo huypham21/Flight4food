@@ -1,0 +1,5 @@
+---
+applications:
+ - name: Flight-for-food
+   random-route: true
+   memory: 256M
